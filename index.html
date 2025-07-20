@@ -5,26 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наша история — 5 лет вместе</title>
     <style>
-
-
-    /* Базовые стили для изображений */
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    /* Дополнительная адаптация для маленьких экранов */
-    @media (max-width: 600px) {
-        img {
-            width: 95%;
-            margin: 10px auto;
-        }
-    }
-
         /* Базовые стили */
         * {
             margin: 0;
@@ -37,41 +17,42 @@
             background: linear-gradient(135deg, #fff5f5, #ffecec);
             color: #333;
             line-height: 1.6;
+            padding-bottom: 60px; /* Для аудиоплеера */
         }
         
         .container {
             max-width: 100%;
-            padding: 20px;
+            padding: 15px;
             overflow-x: hidden;
         }
         
         header {
             text-align: center;
-            padding: 30px 0;
+            padding: 25px 0;
             animation: fadeIn 2s;
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #e74c3c;
             margin-bottom: 10px;
         }
         
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #7f8c8d;
         }
         
         /* Таймлайн */
         .timeline {
             position: relative;
-            margin: 40px 0;
+            margin: 30px 0;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            left: 20px;
+            left: 15px;
             top: 0;
             bottom: 0;
             width: 2px;
@@ -80,10 +61,10 @@
         
         .event {
             position: relative;
-            padding-left: 50px;
-            margin-bottom: 40px;
+            padding-left: 40px;
+            margin-bottom: 30px;
             opacity: 0;
-            transform: translateX(-20px);
+            transform: translateX(-15px);
             animation: slideIn 0.5s forwards;
         }
         
@@ -95,10 +76,10 @@
         .event::before {
             content: '';
             position: absolute;
-            left: 12px;
+            left: 8px;
             top: 5px;
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
             background: #e74c3c;
             border: 3px solid #fff;
@@ -108,26 +89,41 @@
             font-weight: bold;
             color: #e74c3c;
             margin-bottom: 5px;
+            font-size: 1rem;
         }
         
         .event-text {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 0.95rem;
+        }
+        
+        /* Стили для изображений */
+        .event-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
         }
         
         /* Галерея */
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin: 30px 0;
+            gap: 8px;
+            margin: 25px 0;
         }
         
         .gallery img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 6px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
             transition: transform 0.3s;
         }
         
@@ -138,12 +134,12 @@
         /* Аудиоплеер */
         .audio-player {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 15px;
+            right: 15px;
             background: white;
-            padding: 10px 15px;
-            border-radius: 30px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            padding: 8px 12px;
+            border-radius: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
             z-index: 100;
@@ -153,11 +149,15 @@
             background: #e74c3c;
             color: white;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 8px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
         }
         
         /* Анимации */
@@ -176,8 +176,22 @@
         /* Футер */
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 25px 0;
             color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Адаптация для очень маленьких экранов */
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .event {
+                padding-left: 35px;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -190,22 +204,17 @@
         
         <section class="timeline">
             <div class="event">
-                <div class="event-date">22 июня 2020 года  </div>
+                <div class="event-date">22 июня 2020 года</div>
                 <div class="event-text">
-                    Поздно ночью я тебе впервые написал пьяненикьй в Бадуу, помню как устроил тебе допрос, что тебе нравиться, а ты расказывала про книги и какая ты толстая и не ничего не ешь
+                    Поздно ночью я тебе впервые написал пьяный в Баду, помню как устроил тебе допрос, что тебе нравится, а ты рассказывала про книги и какая ты толстая и ничего не ешь
                 </div>
             </div>
             
             <div class="event">
-                <div class="event-date">23 июня 2020 года  </div>
+                <div class="event-date">23 июня 2020 года</div>
                 <div class="event-text">
-                    Это уже была ночь и мы перешли в вк
-<<<<<<< HEAD
-                    <img src="D:\LoveStory\Image\ПервойРазговор.jpg" alt="Наше фото">
-                    <img src="Image\ПервойРазговор.jpg" alt="Наше фото" style="max-width: 100%;">
-=======
-                    <img src="Image\ПервойРазговор.jpg" alt="Наше фото">
->>>>>>> 10da12147ad7c6123297a834e706b6e87dedaf75
+                    Это уже была ночь и мы перешли в ВК
+                    <img src="Image/PerviyRazgovor.jpg" alt="Наш первый разговор" class="event-image">
                 </div>
             </div>
             
@@ -224,15 +233,15 @@
             </div>
         </section>
         
-        <h2 style="text-align: center; margin: 40px 0 20px; color: #e74c3c;">Наши фото</h2>
+        <h2 style="text-align: center; margin: 30px 0 15px; color: #e74c3c;">Наши фото</h2>
         
         <div class="gallery">
-            <img src="https://via.placeholder.com/300x300?text=Фото+1" alt="Наше фото">
-            <img src="https://via.placeholder.com/300x300?text=Фото+2" alt="Наше фото">
-            <img src="https://via.placeholder.com/300x300?text=Фото+3" alt="Наше фото">
-            <img src="https://via.placeholder.com/300x300?text=Фото+4" alt="Наше фото">
-            <img src="https://via.placeholder.com/300x300?text=Фото+5" alt="Наше фото">
-            <img src="https://via.placeholder.com/300x300?text=Фото+6" alt="Наше фото">
+            <img src="Image/photo1.jpg" alt="Наше фото 1">
+            <img src="Image/photo2.jpg" alt="Наше фото 2">
+            <img src="Image/photo3.jpg" alt="Наше фото 3">
+            <img src="Image/photo4.jpg" alt="Наше фото 4">
+            <img src="Image/photo5.jpg" alt="Наше фото 5">
+            <img src="Image/photo6.jpg" alt="Наше фото 6">
         </div>
         
         <footer>
@@ -245,7 +254,7 @@
         <button id="playPauseBtn">▶</button>
         <span>Наша песня</span>
         <audio id="bgMusic" loop>
-            <source src="ваша-песня.mp3" type="audio/mpeg">
+            <source src="audio/our-song.mp3" type="audio/mpeg">
             Ваш браузер не поддерживает аудио элемент.
         </audio>
     </div>
@@ -255,14 +264,13 @@
         const music = document.getElementById('bgMusic');
         const playPauseBtn = document.getElementById('playPauseBtn');
         
-        // Попытка автовоспроизведения (работает не во всех браузерах)
+        // Попытка автовоспроизведения
         document.addEventListener('DOMContentLoaded', function() {
             music.volume = 0.3;
             const playPromise = music.play();
             
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
-                    console.log("Автовоспроизведение заблокировано");
                     playPauseBtn.textContent = "▶";
                 });
             }
@@ -291,7 +299,7 @@
         }
         
         window.addEventListener('scroll', checkScroll);
-        checkScroll(); // Проверить при загрузке
+        checkScroll();
     </script>
 </body>
 </html>
