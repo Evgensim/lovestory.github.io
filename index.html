@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наша история — 5 лет вместе</title>
+    <style>
+        /* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff5f5, #ffecec);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            animation: fadeIn 2s;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        
+        /* Таймлайн */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e74c3c;
+        }
+        
+        .event {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.5s forwards;
+        }
+        
+        .event:nth-child(1) { animation-delay: 0.5s; }
+        .event:nth-child(2) { animation-delay: 1s; }
+        .event:nth-child(3) { animation-delay: 1.5s; }
+        .event:nth-child(4) { animation-delay: 2s; }
+        
+        .event::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #e74c3c;
+            border: 3px solid #fff;
+        }
+        
+        .event-date {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+        
+        .event-text {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 30px 0;
+        }
+        
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Аудиоплеер */
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        #playPauseBtn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Футер */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Наша история</h1>
+            <div class="subtitle">5 лет счастья вместе</div>
+        </header>
+        
+        <section class="timeline">
+            <div class="event">
+                <div class="event-date">Июнь 2018</div>
+                <div class="event-text">
+                    Наша первая встреча в кафе "У озера". Ты опоздала на 15 минут, но это того стоило!
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="event-date">Декабрь 2019</div>
+                <div class="event-text">
+                    Первое совместное путешествие в Прагу. Помнишь, как мы заблудились в старом городе?
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="event-date">Май 2021</div>
+                <div class="event-text">
+                    Мы переехали в наш первый общий дом! Эти коробки казались бесконечными...
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="event-date">Сентябрь 2023</div>
+                <div class="event-text">
+                    Свадьба! Самый счастливый день в нашей жизни. Спасибо, что ты есть в моей жизни.
+                </div>
+            </div>
+        </section>
+        
+        <h2 style="text-align: center; margin: 40px 0 20px; color: #e74c3c;">Наши фото</h2>
+        
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300x300?text=Фото+1" alt="Наше фото">
+            <img src="https://via.placeholder.com/300x300?text=Фото+2" alt="Наше фото">
+            <img src="https://via.placeholder.com/300x300?text=Фото+3" alt="Наше фото">
+            <img src="https://via.placeholder.com/300x300?text=Фото+4" alt="Наше фото">
+            <img src="https://via.placeholder.com/300x300?text=Фото+5" alt="Наше фото">
+            <img src="https://via.placeholder.com/300x300?text=Фото+6" alt="Наше фото">
+        </div>
+        
+        <footer>
+            С любовью, для тебя ❤️
+        </footer>
+    </div>
+    
+    <!-- Аудиоплеер -->
+    <div class="audio-player">
+        <button id="playPauseBtn">▶</button>
+        <span>Наша песня</span>
+        <audio id="bgMusic" loop>
+            <source src="ваша-песня.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает аудио элемент.
+        </audio>
+    </div>
+    
+    <script>
+        // Управление музыкой
+        const music = document.getElementById('bgMusic');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        
+        // Попытка автовоспроизведения (работает не во всех браузерах)
+        document.addEventListener('DOMContentLoaded', function() {
+            music.volume = 0.3;
+            const playPromise = music.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Автовоспроизведение заблокировано");
+                    playPauseBtn.textContent = "▶";
+                });
+            }
+        });
+        
+        playPauseBtn.addEventListener('click', function() {
+            if (music.paused) {
+                music.play();
+                playPauseBtn.textContent = "❚❚";
+            } else {
+                music.pause();
+                playPauseBtn.textContent = "▶";
+            }
+        });
+        
+        // Анимация при скролле
+        const events = document.querySelectorAll('.event');
+        
+        function checkScroll() {
+            events.forEach(event => {
+                const eventTop = event.getBoundingClientRect().top;
+                if (eventTop < window.innerHeight - 100) {
+                    event.style.animationPlayState = 'running';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Проверить при загрузке
+    </script>
+</body>
+</html>
